@@ -269,7 +269,7 @@ class SelectFromQuadraticModel(SelectorMixin, BaseEstimator):
         # run on Dynex platform:
         bqm, invert = dimod.cqm_to_bqm(cqm) # Convert CQM->BQM
         model = dynex.BQM(bqm);
-        sampler = dynex.DynexSampler(model, mainnet=False, description='Dynex SciKit Plugin', bnb=False);
+        sampler = dynex.DynexSampler(model, mainnet=False, description='Dynex SciKit Plugin');
         sampleset_x = sampler.sample(num_reads=2048, annealing_time=200, debugging=False);
         sampleset = invert(sampleset_x.first.sample);
         lowest = sampleset_x.first.sample;
